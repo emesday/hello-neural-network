@@ -1,4 +1,4 @@
-from python import load_dataset, random_state
+from python import load_dataset, random_state, l2_penalty
 from sklearn.linear_model import SGDRegressor
 
 """$ python python_sklearn.py
@@ -20,8 +20,11 @@ W: [ 0.79767967  1.60081617], b: [ 2.16693286]
 
 if __name__ == '__main__':
     x, y = load_dataset()
-    model = SGDRegressor(loss='squared_loss', penalty='l2', alpha=0.0001, random_state=random_state, max_iter=1000, tol=1e-3, verbose=1)
+    # build model
+    model = SGDRegressor(loss='squared_loss', penalty='l2', alpha=l2_penalty, random_state=random_state, max_iter=1000, tol=1e-3, verbose=1)
+    # training
     model.fit(x, y)
+    # get weights
     print('W: %s, b: %s' % (model.coef_, model.intercept_))
 
 

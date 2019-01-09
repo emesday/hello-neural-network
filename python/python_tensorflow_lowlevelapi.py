@@ -30,9 +30,9 @@ training_init_op = iterator.make_initializer(training_dataset)
 test_init_op = iterator.make_initializer(test_dataset)
 
 # Setup the layers
-W1 = tf.get_variable("W1", [784, 128], initializer=tf.initializers.glorot_uniform)
+W1 = tf.get_variable("W1", [784, 128], initializer=tf.initializers.glorot_uniform())
 b1 = tf.get_variable("b1", [128], initializer=tf.zeros_initializer())
-W2 = tf.get_variable("W2", [128, 10], initializer=tf.initializers.glorot_uniform)
+W2 = tf.get_variable("W2", [128, 10], initializer=tf.initializers.glorot_uniform())
 b2 = tf.get_variable("b2", [10], initializer=tf.zeros_initializer())
 
 z1 = tf.add(tf.matmul(x, W1), b1)
